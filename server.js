@@ -24,8 +24,25 @@ const database = {
             entries: 0,
             joined: new Date()
         }
+    ],
+    login: [
+        {
+            id: '987',
+            hash: '',
+            email: 'john@gmail.com'
+        }
     ]
 }
+
+
+
+// Load hash from your password DB.
+bcrypt.compare("bacon", hash, function(err, res) {
+    // res == true
+});
+bcrypt.compare("veggies", hash, function(err, res) {
+    // res = false
+});
 
 app.get('/', (req, res) => {
     res.send(database.users);
@@ -40,7 +57,10 @@ app.post('/signin', (req, res) => {
 })
 
 app.post('/register', (req, res) => {
-    const { email, name, password } = req.body;
+    const { email, name, password } = req.body;0
+    bcrypt.hash(password, null, null, function(err, hash) {
+        console.log(hash);
+    });
     database.users.push({
         id: '125',
         name: name,
