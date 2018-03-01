@@ -19,45 +19,6 @@ const db = knex({
 app.use(bodyParser.json());
 app.use(cors());
 
-const database = {
-    users: [
-        {
-            id: '123',
-            name: 'John',
-            email: 'john@gmail.com',
-            password: 'cookies',
-            entries: 0,
-            joined: new Date()
-        },
-        {
-            id: '124',
-            name: 'Sally',
-            email: 'sally@gmail.com',
-            password: 'bananas',
-            entries: 0,
-            joined: new Date()
-        }
-    ],
-    login: [
-        {
-            id: '987',
-            hash: '',
-            email: 'john@gmail.com'
-        }
-    ]
-}
-
-//    bcrypt.hash(password, null, null, function(err, hash) {
-//    });
-
-// Load hash from your password DB.
-// bcrypt.compare("bacon", hash, function(err, res) {
-//     // res == true
-// });
-// bcrypt.compare("veggies", hash, function(err, res) {
-//     // res = false
-// });
-
 app.get('/', (req, res) => {
     res.send(database.users);
 })
@@ -67,12 +28,10 @@ app.post('/signin', (req, res) => {
         .where('email', '=', req.body.email)
         .then(data => {
             const isValid = bcrypt.compareSync(req.body.password, data[0].hash);
-            console.log(isValid)
             if (isValid) {
                 return db.select('*').from('users')
                     .where('email', '=', req.body.email)
                     .then(user => {
-                        console.log(user);
                         res.json(user[0])
                     })
                     .catch(err => res.status(400).json('unable to get user'))
@@ -135,11 +94,3 @@ app.put('/image', (req, res) => {
 app.listen(3001, ()=> {
     console.log('app is running on port 3001');
 })
-
-/*
-/ --> res = this is working
-/signin --> POST = success/fail
-/register --> POST = user
-/profile/:userId --> GET = user
-/image --> PUT --> user
-*/
