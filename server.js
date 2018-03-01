@@ -80,7 +80,7 @@ app.post('/register', (req, res) => {
             joined: new Date()
         })
         .then(response => {
-            res.json(database.users[database.users.length-1]);
+            res.json(response);
         })
 })
 
