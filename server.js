@@ -76,6 +76,8 @@ app.post('/signin', (req, res) => {
                         res.json(user[0])
                     })
                     .catch(err => res.status(400).json('unable to get user'))
+                } else {
+                    res.status(400).json('Wrong Credentials')
                 }
         })
         .catch(err => res.status(400).json('Wrong Credentials'))
