@@ -7,7 +7,6 @@ const handleProfileGet = (req, res, db) => {
         } else {
             res.status(400).json('Not Found')
         }
-
     })
 }
 
