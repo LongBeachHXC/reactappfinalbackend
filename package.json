@@ -1,0 +1,32 @@
+{
+  "name": "reactappfinalbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LongBeachHXC/reactappfinalbackend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LongBeachHXC/reactappfinalbackend/issues"
+  },
+  "homepage": "https://github.com/LongBeachHXC/reactappfinalbackend#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "clarifai": "^2.6.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "knex": "^0.14.4",
+    "pg": "^7.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
+  }
+}
