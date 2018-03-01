@@ -106,7 +106,6 @@ app.put('/image', (req, res) => {
     .then(entries => {
         console.log(entries);
     })
-    })
 })
 app.listen(3001, ()=> {
     console.log('app is running on port 3001');
