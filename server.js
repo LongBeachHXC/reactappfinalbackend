@@ -92,7 +92,7 @@ app.get('/profile/:id', (req, res) => {
         if (user.length) {
             res.json(user[0])
         } else {
-            res.tatus(400).json('Not Found')
+            res.status(400).json('Not Found')
         }
 
     })
