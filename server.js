@@ -8,7 +8,7 @@ const postgres = knex({
     client: 'pg',
     connection: {
         host: '10.13.113.4',
-        user: 'forrest',
+        user: 'forwein',
         password: '',
         database: 'smart-brain'
     }
